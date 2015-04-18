@@ -49,7 +49,7 @@ end
 # as selected by the user
 def get_operation
   puts "--- Type in your selection"
-  puts "--- 1 -> (+) || 2 -> (-) || 3 -> (x) || 4 -> (/)"
+  puts "--- 1 -> (+) || 2 -> (-) || 3 -> (*) || 4 -> (/)"
   print "=> "
 
   # Get user's input
