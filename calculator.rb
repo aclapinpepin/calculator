@@ -4,7 +4,7 @@
 
 # This method asks the user for a number
 def get_user_number(number_order)
-  err_message = "You have not entered a valid number!"
+  error_message = "You have not entered a valid number!"
   puts "--- Please enter your #{number_order} number"
   print "=> "
   number = ""
@@ -14,27 +14,27 @@ def get_user_number(number_order)
     if verify_number(number)
       break
     else
-      puts err_message
+      puts error_message
     end
   end
   number.to_f
 end
 
 # This method verifies if the user's input is a valid number
-def verify_number(str_number)
+def verify_number(string_number)
   # Initialize the method to false
   return_value = false
 
   # Arrange the user's input in order to make it into a verificable array
   # containing each character separately
-  str_number.delete!(' ')
-  arr_number = str_number.split(//)
+  string_number.delete!(' ')
+  array_number = string_number.split(//)
 
   # Verify if user entered a float or a fixnum and proceed with the 
   # verification of each character of the user's input
-  if arr_number.count(".") == 0 || arr_number.count(".") == 1
-    arr_number.each do |x|
-      if x.match(/\d/) == nil && x != "." && x != "-"
+  if array_number.count(".") == 0 || array_number.count(".") == 1
+    array_number.each do |number|
+      if number.match(/\d/) == nil && number != "." && number != "-"
         return_value = false
         break
       else
@@ -103,11 +103,11 @@ def calculator
   while user_choice != "3"
     # Ask the user to input his numbers
     if user_choice == "2" || user_choice == ""
-      first_num = get_user_number("first")
-      second_num = get_user_number("second")
+      first_number = get_user_number("first")
+      second_number = get_user_number("second")
     else
-      first_num = result
-      second_num = get_user_number("next")
+      first_number = result
+      second_number = get_user_number("next")
     end
 
     # Ask the user which operation to apply
@@ -116,34 +116,34 @@ def calculator
     # Calculate!
     case operation
     when "1"
-      result = first_num + second_num
+      result = first_number + second_number
       operator = "+"
     when "2"
-      result = first_num - second_num
+      result = first_number - second_number
       operator = "-"
     when "3"
-      result = first_num * second_num
+      result = first_number * second_number
       operator = "*"
     when "4"
-      # Verify if user is dividing first_num by 0
-      if second_num == 0.0
+      # Verify if user is dividing first_number by 0
+      if second_number == 0.0
         puts "You can't divide by 0!"
         next
       else
-        result = first_num / second_num
+        result = first_number / second_number
       end
       operator = "/"
     end
 
     # Convert the numbers to integer if needed
-    first_num = convert_to_integer(first_num)
-    second_num = convert_to_integer(second_num)
+    first_number = convert_to_integer(first_number)
+    second_number = convert_to_integer(second_number)
     result = convert_to_integer(result)
 
 
     # Print out the result
     puts ""
-    puts "=> #{first_num} #{operator} #{second_num} = #{result}"
+    puts "=> #{first_number} #{operator} #{second_number} = #{result}"
     puts ""
 
     # Verify with the user what to do next
