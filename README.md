@@ -1,5 +1,4 @@
 # Calculator
--
 This is a simple calculator application written in Ruby done in the context of the Tealeaf Academy online bootcamp.
 
 ##Running
